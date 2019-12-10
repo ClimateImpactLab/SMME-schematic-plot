@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm,gaussian_kde
 
 # read gmt from SCM
-file = '../MAGICC_CMIP/IPCCAR5climsens_rcp85_DAT_SURFACE_TEMP_BO_15Nov2013_185227.OUT'
+file = 'IPCCAR5climsens_rcp85_DAT_SURFACE_TEMP_BO_15Nov2013_185227.OUT'
 data = np.loadtxt(file, skiprows=24)
 year0 = data[:,0]
 gmt = data[(year0>=2080)&(year0<=2099),1:]
