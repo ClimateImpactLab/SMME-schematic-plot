@@ -18,7 +18,7 @@ import pandas as pd
 
 # read shapefile
 print('reading shapefile ...')
-fs = '/global/home/users/jiacany/shapefile/GCP/agglomerated-world-new'
+fs = 'agglomerated-world-new'
 m = Basemap(projection='cyl', llcrnrlat=-90, urcrnrlat=90,\
             llcrnrlon=-180, urcrnrlon=180, resolution=None)
 m.readshapefile(fs, 'shapes', drawbounds=False)
@@ -34,6 +34,7 @@ ensemble = 'r1i1p1'
 # set model
 model = sys.argv[1]
 
+# absolute path for large-size files for population-weighted aggregation
 Dir='/global/scratch/groups/co_laika/gcp/climate/nasa_bcsd/hierid/popwt/daily/tas/rcp85'
 Dirh='/global/scratch/groups/co_laika/gcp/climate/nasa_bcsd/hierid/popwt/daily/tas/historical'
 
@@ -88,7 +89,7 @@ if model[:9] !='surrogate':
     mm.drawcoastlines(linewidth=2, color='steelblue',zorder=0)
 plt.axis('off')
 plt.colorbar(c,orientation="horizontal")
-f_p = '/global/home/users/jiacany/figures/reg_agg/{:}_GCP_aggregated_rcp85_{:}_2080-2099.png'.format(var_name, model)
+f_p = 'figures/{:}_GCP_aggregated_rcp85_{:}_2080-2099.png'.format(var_name, model)
 fig.savefig(f_p, dpi=300)
 plt.close(fig)
 
