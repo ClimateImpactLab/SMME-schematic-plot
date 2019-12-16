@@ -15,16 +15,16 @@ from scipy.interpolate import griddata
 from scipy.ndimage import label
 import pandas as pd
 
-
 # read shapefile
 print('reading shapefile ...')
-fs = 'agglomerated-world-new'
+fs = 'shapefile/agglomerated-world-new'
 m = Basemap(projection='cyl', llcrnrlat=-90, urcrnrlat=90,\
             llcrnrlon=-180, urcrnrlon=180, resolution=None)
 m.readshapefile(fs, 'shapes', drawbounds=False)
 n_shp = len(m.shapes)
 n_rgn = m.shapes_info[-1]['SHAPENUM']
 
+# define the parameters
 var_name = 'tas'
 var_units = 'Degree Celsius'
 scenario = ['rcp85']
@@ -57,6 +57,8 @@ for yr_h in years_hist:
     tash_list.append(var_h)
 tash = xr.concat(tash_list, dim=pd.Index(years_hist, name='years'))
 tas_bl = tash.mean(dim='years')
+
+# compute the anomaly of surface temperature at impact-region level
 for yr in years:
     f = '{:}/{:}/{:}/{:}'.format(Dir, model,yr,fn)
     ds = xr.open_dataset(f)
@@ -92,5 +94,4 @@ plt.colorbar(c,orientation="horizontal")
 f_p = 'figures/{:}_GCP_aggregated_rcp85_{:}_2080-2099.png'.format(var_name, model)
 fig.savefig(f_p, dpi=300)
 plt.close(fig)
-
 
