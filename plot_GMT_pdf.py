@@ -29,6 +29,6 @@ plt.ylabel('Probability Density',fontsize=15)
 plt.xlabel('2080-2099 Global Mean Temperature Anomaly ($^\circ$C)',fontsize=15)
 plt.ylim(0, 0.45)
 plt.xlim(0,10)
-fig_name = 'figures/PDF_golobal_mean_temp_2080-2099.pdf'
+fig_name = 'PDF_golobal_mean_temp_2080-2099.pdf'
 fig.savefig(fig_name, dpi=300)
 plt.close(fig)
