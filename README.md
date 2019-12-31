@@ -5,7 +5,7 @@ This repository provide code for generating figures to compose the SMME schemati
 
 2. plot_tas_aggregation_annual_GCP.py is the python code for generating world maps of surface temperature anomaly in impact regions.
 
-3. figures: the folder stores figures produced by the code 1 and 2
+3. figures: a folder stores figures produced by the code 1 and 2. Limited by the space of the repository, the figures used to produce the schematic plot are stored on Zenodo (http://doi.org/10.5281/zenodo.3595174). Users can download the figures from the Zenodo and save them in the folder.
 
 4. shapefile: this folder stores the shape file for impact regions
 
